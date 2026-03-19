@@ -1,0 +1,28 @@
+{
+  "name": "data-with-working-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcgibbskc/Data-With-Working-Files.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jcgibbskc/Data-With-Working-Files/issues"
+  },
+  "homepage": "https://github.com/jcgibbskc/Data-With-Working-Files#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.14",
+    "dayjs": "^1.11.20",
+    "days": "^1.1.1",
+    "fs-extra": "^11.3.4",
+    "json2csv": "^6.0.0-alpha.2"
+  }
+}

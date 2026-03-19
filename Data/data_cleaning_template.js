@@ -5,14 +5,14 @@ const dayjs = require ("dayjs");
 
 
 // --- Step 1: Read raw CSV ---
-const rawPath = "";
+const rawPath = "./raw_sales_data.csv";
 
 
 
 
-async function () {
+async function cleanData() {
   console.log("Reading raw CSV...");
-  let data = await csv().fromFile();
+  let data = await csv().fromFile(rawPath);
 
 
 
@@ -27,29 +27,28 @@ async function () {
   data = data.map((row) => {
     // Normalize keys
     return {
-      customer_id: ,
-      product: ,
-      price: ,
-      date: ,
-      city: ,
+      customer_id:row.CustomerID?.trim(),
+      product: row.Product?.trim().toLowerCase(),
+      price: cleanPrice(row.Price),
+      date: cleanDate(row.Date),
+      city: row.City?.trim(),
     };
   });
 
 
 
-
   // --- Step 3: Export cleaned data ---
-  await exportCleanData();
-
+  await exportCleanData(data);
 
 
 
   // --- Step 4: Log changes ---
  await fs.writeFile(
-  ,
+"./cleaning_log.txt",
   `Cleaned ${data.length} records on ${new Date().toISOString()}\n`
 );
 }
+
 
 
 
@@ -64,7 +63,7 @@ function cleanPrice(price) {
 
 function cleanDate(date) {
   const parsed = dayjs(date);
-  return parsed.isValid() ? parsed.format("") : null;
+  return parsed.isValid() ? parsed.format("YYYY-MM-DD") : null;
 }
 
 
@@ -72,7 +71,7 @@ function cleanDate(date) {
 
 async function exportCleanData(data) {
   // Export JSON
-  await fs.writeJson("", data, { spaces: 2 });
+  await fs.writeJson("./cleaned_sales_data.json", data, { spaces: 2 });
 
 
 
@@ -80,7 +79,7 @@ async function exportCleanData(data) {
   // Export CSV
   const parser = new Parser();
   const csvData = parser.parse(data);
-  await fs.writeFile("", csvData);
+  await fs.writeFile("./cleaned_sales_data.csv", csvData);
 }
 
 

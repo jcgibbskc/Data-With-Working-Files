@@ -1,0 +1,38 @@
+[
+  {
+    "customer_id": "001",
+    "price": 100,
+    "date": "2024-03-01",
+    "city": "New York"
+  },
+  {
+    "customer_id": "002",
+    "price": 200,
+    "date": "2024-03-02",
+    "city": "Los Angeles"
+  },
+  {
+    "customer_id": "003",
+    "price": 150,
+    "date": "2024-03-03",
+    "city": "San Francisco"
+  },
+  {
+    "customer_id": "004",
+    "price": null,
+    "date": "2024-03-04",
+    "city": "München"
+  },
+  {
+    "customer_id": "005",
+    "price": null,
+    "date": "2024-03-05",
+    "city": "New York"
+  },
+  {
+    "customer_id": "006",
+    "price": 300,
+    "date": "2024-03-06",
+    "city": "Jose"
+  }
+]

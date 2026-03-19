@@ -2,8 +2,8 @@ import Ajv from "ajv";
 import fs from "fs-extra";
 
 const ajv = new Ajv();
-const schema = await fs.readJson("");
-const data = await fs.readJson("");
+const schema = await fs.readJson("./cleaned_sales_schema.s=schema");
+const data = await fs.readJson("./cleaned_sales_data.json ");
 
 const validate = ajv.compile(schema);
 const valid = validate(data);
